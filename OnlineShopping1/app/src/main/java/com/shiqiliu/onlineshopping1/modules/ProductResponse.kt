@@ -19,11 +19,11 @@ data class Product(
     val position: Int?,
     val price: Float?,
     val productName: String?,
-    val quantity: Int?,
+    var quantity: Int,
     val status: Boolean?,
     val subId: Int?,
-    val unit: String?,
-    var count:Int
+    val unit: String?
+    //var count:Int?
 ):Serializable{
     companion object{
         const val KEY_Product="product"

@@ -1,10 +1,12 @@
 package com.shiqiliu.onlineshopping1.modules
 
+import java.io.Serializable
+
 data class OrderResponse(
     val count: Int,
-    val data: List<Order>,
+    val data: ArrayList<Order>,
     val error: Boolean
-)
+): Serializable
 
 data class Order(
     val __v: Int,
@@ -13,11 +15,11 @@ data class Order(
     val orderStatus: String,
     val orderSummary: OrderSummary,
     val payment: Payment,
-    val products: ArrayList<Product>,
+    val products: List<ProductData>,
     val shippingAddress: ShippingAddress,
     val user: User,
     val userId: String
-)
+): Serializable
 
 data class OrderSummary(
     val deliveryCharges: Float,
@@ -25,13 +27,13 @@ data class OrderSummary(
     val orderAmount: Float,
     val ourPrice: Float,
     val totalAmount: Float
-)
+): Serializable
 
 data class Payment(
    // val _id: String,
     val paymentMode: String,
     val paymentStatus: String
-)
+): Serializable
 
 data class ShippingAddress(
     val _id: String,
@@ -40,4 +42,12 @@ data class ShippingAddress(
     val pincode: Int,
     val streetName: String,
     val type: String
-)
+): Serializable
+
+data class ProductData(
+    var _id: String,
+    var image: String,
+    var price: Int,
+    var productName: String,
+    var quantity :Int
+): Serializable

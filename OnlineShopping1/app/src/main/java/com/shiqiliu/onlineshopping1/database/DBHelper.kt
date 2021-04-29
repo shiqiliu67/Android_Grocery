@@ -42,25 +42,28 @@ class DBHelper (var mContext: Context) : SQLiteOpenHelper(mContext, DATABASE_NAM
     fun addToCart(product: Product){
         if(!containProduct(product)){
         var contentValues = ContentValues()
-        product.count =1
+      //  product.count =1
+         product.quantity=1
         contentValues.put(COLUMN_ID,product._id)
         contentValues.put(COLUMN_NAME,product.productName)
         contentValues.put(COLUMN_PRICE,product.price)
         contentValues.put(COLUMN_IMAGE,product.image)
-        contentValues.put(COLUMN_COUNT,product.count)//default 1
+        //contentValues.put(COLUMN_COUNT,product.count)//default 1
+        contentValues.put(COLUMN_COUNT,product.quantity)
         db.insert(TABLE_NAME,null,contentValues)
         Log.d("abc","add to cart")}
         else{
-           // product.count++
+           // product.quantity++
             UpdateCart(product)
         }
     }
     //update product to cart unit = '', where product id = ""
     fun UpdateCart(product: Product):Int{
-        product.count++
+        //product.count++
+        product.quantity++
         var contentValues = ContentValues()
-       contentValues.put(COLUMN_COUNT,product.count)
-        Log.d("abc","update cart count:${product.count}")
+       contentValues.put(COLUMN_COUNT,product.quantity)
+        Log.d("abc","update cart count:${product.quantity}")
       //  contentValues.put(COLUMN_PRICE,product.price)
         var whereClause = "$COLUMN_ID = ?"
         var whereArgs = arrayOf(product._id.toString())
@@ -85,7 +88,7 @@ class DBHelper (var mContext: Context) : SQLiteOpenHelper(mContext, DATABASE_NAM
                 var count = cursor.getInt(cursor.getColumnIndex(COLUMN_COUNT))
 
                // var product = ProductCart(id,name,price,image,quantity)
-                var product = Product(null,id,null,null,null,image,null,null,price,name,null,null,null,null,count)
+                var product = Product(null,id,null,null,null,image,null,null,price,name,count,null,null,null)
                 list.add(product)
             } while (cursor.moveToNext())
         }
@@ -93,10 +96,10 @@ class DBHelper (var mContext: Context) : SQLiteOpenHelper(mContext, DATABASE_NAM
     }
 
     fun increaseNumber(product: Product):Int{
-        product.count = product.count + 1
-        Log.d("abc", "count now $product.count")
+        product.quantity = product.quantity + 1
+        Log.d("abc", "count now ${product.quantity}")
         var contentValues = ContentValues()
-        contentValues.put(COLUMN_COUNT,product.count)
+        contentValues.put(COLUMN_COUNT,product.quantity)
         var whereClause = "$COLUMN_ID = ?"
         var whereArgs = arrayOf(product._id.toString())
         return db.update(TABLE_NAME,contentValues,whereClause,whereArgs)
@@ -104,24 +107,24 @@ class DBHelper (var mContext: Context) : SQLiteOpenHelper(mContext, DATABASE_NAM
 
     fun decreaseNumber(product: Product):Int {
 
-        product.count = product.count -1
+        product.quantity = product.quantity -1
         Log.d("abc", "count now $product.count")
         //when count<0 delete
-        if(product.count <= 0){
+        if(product.quantity <= 0){
             deleteProductToCart(product)
             mContext.startActivity(Intent(mContext, ShoppingCartActivity::class.java))
             Toast.makeText(mContext, "Delete Successful", Toast.LENGTH_SHORT).show()
         }
 
         var contentValues = ContentValues()
-        contentValues.put(COLUMN_COUNT,product.count)
+        contentValues.put(COLUMN_COUNT,product.quantity)
         var whereClause = "$COLUMN_ID = ?"
         var whereArgs = arrayOf(product._id.toString())
         return db.update(TABLE_NAME,contentValues,whereClause,whereArgs)
     }
 
     fun totalPrice(product: Product):Float{
-        var total = product.count * product.price!!
+        var total = product.quantity * product.price!!
         return total
     }
 
@@ -146,6 +149,9 @@ class DBHelper (var mContext: Context) : SQLiteOpenHelper(mContext, DATABASE_NAM
         var query = "select * from $TABLE_NAME"
         var cursor = db.rawQuery(query, null)
         return cursor.count == 0
+    }
+    fun EmptyCart():Int{
+        return db.delete(TABLE_NAME, null, null)
     }
 
 

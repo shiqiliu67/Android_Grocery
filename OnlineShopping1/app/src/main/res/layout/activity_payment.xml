@@ -131,25 +131,27 @@
         android:layout_marginRight="10dp"
         android:layout_below="@+id/text_view_to_pay_amount_payment">
         <RadioButton
+            android:checked="true"
             android:id="@+id/radio_button_pay_online"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Pay Online" />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Add Card Here"
-            android:textColor="@color/light_green"
-            android:textStyle="italic"
-            android:id="@+id/text_view_add_card"
-            />
+
         <RadioButton
             android:id="@+id/radio_button_pay_cash"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:text="Pay Cash" />
     </RadioGroup>
-
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add Card Here"
+        android:textColor="@color/light_green"
+        android:textStyle="italic"
+        android:layout_below="@id/text_view_to_pay_amount_price_payment"
+        android:id="@+id/text_view_add_card"
+        />
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"

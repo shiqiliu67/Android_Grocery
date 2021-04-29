@@ -36,7 +36,8 @@ class ShoppingCartActivity : AppCompatActivity() {
     @JvmName("getTotalPrice1")
     fun getTotalPrice():Float {
         for(product in mList){
-            totalPrice += (product.count * product.price!!)
+            totalPrice += (product.quantity * product.price!!)
+
         }
         return totalPrice
     }

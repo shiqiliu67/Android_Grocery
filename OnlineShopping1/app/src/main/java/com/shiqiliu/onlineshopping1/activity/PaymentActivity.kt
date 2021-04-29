@@ -32,11 +32,12 @@ class PaymentActivity : AppCompatActivity() {
     lateinit var payment_method: String
     lateinit var dbHelper: DBHelper
     lateinit var mList: List<Product>
-
+    lateinit var orderStatus:String
     lateinit var totalPrice: String
     lateinit var discount: String
     lateinit var toPay: String
     lateinit var delivery: String
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -101,6 +102,7 @@ class PaymentActivity : AppCompatActivity() {
         discount = sharedPreferences.getString("discount", "").toString()
         toPay = sharedPreferences.getString("toPay", "").toString()
         delivery = sharedPreferences.getString("delivery", "").toString()
+     //   count = sharedPreferences.getInt("count", 0)
         Log.d("abc", "totalPrice:$totalPrice")
 
         text_view_total_payment.text = "$$toPay"
@@ -118,6 +120,7 @@ class PaymentActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Choose Payment Method", Toast.LENGTH_SHORT)
                     .show()
             }
+
         }
 
 
@@ -132,15 +135,17 @@ class PaymentActivity : AppCompatActivity() {
 
 
     }
-
+//checkevennt
     private fun checkClickButton(): Boolean {
         radio_button_pay_cash.setOnClickListener {
             click = true
+            orderStatus ="completed"
             payment_method = "cash"
             OrderSummary()
         }
         radio_button_pay_online.setOnClickListener {
             click = true
+            orderStatus ="completed"
             payment_method = "online"
             OrderSummary()
         }
@@ -163,10 +168,10 @@ class PaymentActivity : AppCompatActivity() {
         orderJsonObject.put("deliveryCharges", delivery)
         orderJsonObject.put("totalAmount", totalPrice)
 
-        //payment into paymentJsonObject // _id: String, paymentMode paymentStatus
+        //payment into paymentJsonObject // _id: String, paymentMode paymentStatu s
         var paymentJsonObject = JSONObject()
         paymentJsonObject.put("paymentMode", payment_method)
-        paymentJsonObject.put("paymentStatus", "completed")
+        paymentJsonObject.put("paymentStatus", orderStatus)
         // val _id  city houseNo pincode streetName type
         var addressJsonObject = JSONObject()
         addressJsonObject.put("_id", address._id)
@@ -190,11 +195,13 @@ class PaymentActivity : AppCompatActivity() {
         //product
        // var jsonArray: ArrayList<JSONObject> = ArrayList()
         var jsonArray = JSONArray()
-        var productJsonObject = JSONObject()
         for (product in mList) {
+            var productJsonObject = JSONObject()
             productJsonObject.put("quantity", product.quantity)
             productJsonObject.put("mrp", product.mrp)
             productJsonObject.put("productName", product.productName)
+            Log.d("abc", "${product.productName}")
+            Log.d("abc", "${product.quantity}")
             productJsonObject.put("price", product.price)
             productJsonObject.put("image", product.image)
             jsonArray.put(productJsonObject)
@@ -216,6 +223,7 @@ class PaymentActivity : AppCompatActivity() {
             Endpoints.postOrders(),
             jsonObject,
             Response.Listener {
+                dbHelper.EmptyCart()
                 Toast.makeText(applicationContext, "We got the order", Toast.LENGTH_SHORT).show()
             },
             Response.ErrorListener {
@@ -223,7 +231,6 @@ class PaymentActivity : AppCompatActivity() {
                 Log.d("abc", "${it.message}")
                 Toast.makeText(applicationContext, "failed", Toast.LENGTH_SHORT).show()
               //  Toast.makeText(applicationContext, it.message, Toast.LENGTH_SHORT).show()
-
             }
         )
         requestQueue.add(request)

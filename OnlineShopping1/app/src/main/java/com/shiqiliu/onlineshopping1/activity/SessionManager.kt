@@ -22,6 +22,7 @@ class SessionManager (var mContext: Context){
         editor.putString(Key_Discount,discount.toString())
         editor.putString(Key_Delivery,delivery.toString())
         editor.putString(KEY_ToPay,toPay.toString())
+
         editor.commit()
     }
 //    fun isLoggedIn(): Boolean{

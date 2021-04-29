@@ -1,0 +1,193 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+
+        />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_order_date_text_fragment"
+        android:text="Order Date"
+        android:layout_below="@+id/toolbar"
+        android:textSize="20dp"
+        android:textStyle="normal"/>
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_order_date_fragment"
+        android:text="2021/04/28"
+        android:layout_below="@+id/text_view_order_date_text_fragment"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        />
+    <View
+        android:layout_margin="15dp"
+        android:id="@+id/divider_1"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/text_view_order_date_fragment"
+        />
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_order_status_text_fragment"
+        android:text="Order Status"
+        android:layout_below="@+id/divider_1"
+        android:textSize="20dp"
+        android:textStyle="normal"/>
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_order_status_fragment"
+        android:text="Complete"
+        android:textColor="@color/red"
+        android:layout_below="@+id/text_view_order_status_text_fragment"
+        android:textSize="18dp"
+        android:textStyle="normal"/>
+    <View
+        android:id="@+id/divider_2"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/text_view_order_status_fragment"
+        />
+
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_order_address_text_fragment"
+        android:text="Bill to"
+        android:layout_below="@+id/divider_2"
+        android:textSize="20dp"
+        android:textStyle="normal"/>
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_order_address_fragment"
+        android:text="Address"
+        android:layout_below="@+id/text_view_order_address_text_fragment"
+        android:textSize="20dp"
+        android:textStyle="normal"/>
+    <View
+        android:id="@+id/divider_3"
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@+id/text_view_order_address_fragment"
+        />
+    <TextView
+        android:layout_marginLeft="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Summary: "
+        android:id="@+id/text_view_order_summary"
+        android:layout_below="@+id/divider_3"
+        android:textSize="20dp"
+        />
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_order_summary"
+        android:id="@+id/text_view_total_amount_payment"
+        android:text="Total : "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/text_view_total_amount_price_payment"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_order_summary"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Price "
+        android:textSize="22dp" />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/text_view_total_amount_payment"
+        android:id="@+id/text_view_discount_amount_payment"
+        android:text="Discount : "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/text_view_total_amount_payment"
+        android:id="@+id/text_view_discount_amount_price_payment"
+        android:layout_alignParentRight="true"
+        android:text="Price "
+        android:textSize="22dp"
+        android:gravity="center"
+        android:textColor="@color/red"
+        />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_discount_amount_payment"
+        android:id="@+id/text_view_delivery_amount_payment"
+        android:text="Delivery : "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/text_view_delivery_amount_price_payment"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_discount_amount_payment"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:text="Price "
+        android:textSize="22dp" />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_delivery_amount_payment"
+        android:id="@+id/text_view_to_pay_amount_payment"
+        android:text="To pay : "
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_delivery_amount_payment"
+        android:id="@+id/text_view_to_pay_amount_price_payment_fragment"
+        android:layout_alignParentRight="true"
+        android:text="Price "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+</RelativeLayout>

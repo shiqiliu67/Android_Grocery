@@ -26,6 +26,10 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        text_view_login_clicktext_jump.setOnClickListener {
+            var intent = Intent(this,RegsiterActivity::class.java)
+            startActivity(intent)
+        }
         button_login.setOnClickListener {
             var sharedPreferences = getSharedPreferences("my_pref", Context.MODE_PRIVATE)
             var editor = sharedPreferences.edit()

@@ -27,19 +27,19 @@ class AdapterShoppingCart(var mContext: Context) :
         fun bind(product: Product){
             itemView.text_view_product_name_cart.text = product.productName
             itemView.text_view_product_price_cart.text = "$${product.price.toString()}"
-            itemView.text_view_show_unit_cart.text = product.count.toString()
+            itemView.text_view_show_unit_cart.text = product.quantity.toString()
             Picasso.get().load("${Config.IMAGE_URL+product.image}").into(itemView.image_view_cart)
 
             itemView.image_view_minus_cart.setOnClickListener {
                 dbHelper.decreaseNumber(product)
                 mContext.startActivity(Intent(mContext,ShoppingCartActivity::class.java))
-                itemView.text_view_show_unit_cart.text = product.count.toString()
+                itemView.text_view_show_unit_cart.text = product.quantity.toString()
                 Log.d("abc", "count --")
                 }
 
             itemView.image_view_add_cart.setOnClickListener {
                 dbHelper.increaseNumber(product)
-                itemView.text_view_show_unit_cart.text = product.count.toString()
+                itemView.text_view_show_unit_cart.text = product.quantity.toString()
                 mContext.startActivity(Intent(mContext,ShoppingCartActivity::class.java))
                 Log.d("abc", "count ++")
              //   Toast.makeText(mContext,"Count Changed Successful", Toast.LENGTH_SHORT).show()

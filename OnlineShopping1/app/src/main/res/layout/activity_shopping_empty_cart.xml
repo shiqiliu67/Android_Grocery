@@ -15,11 +15,12 @@
         android:textSize="22dp" />
 
     <ImageView
-        android:id="@+id/image_view_return"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_margin="5dp"
-        android:src="@drawable/ic_baseline_keyboard_return_24" />
+        android:src="@drawable/ic_baseline_keyboard_return_24"
+        android:layout_margin="15dp"
+        android:foregroundGravity="center"
+        android:id="@+id/image_view_return"/>
     <!--    <ImageView-->
     <!--        android:layout_width="30dp"-->
     <!--        android:layout_height="30dp"-->
@@ -28,21 +29,23 @@
     <!--        android:layout_margin="3dp"-->
     <!--        android:id="@+id/image_view_refresh"/>-->
     <ImageView
-        android:id="@+id/image_view_show_cart"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_toLeftOf="@id/text_view_cart_number"
-        android:src="@drawable/ic_baseline_add_shopping_cart_24" />
-
+        android:src="@drawable/ic_baseline_add_shopping_cart_24"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/image_view_show_cart"/>
     <TextView
-        android:id="@+id/text_view_cart_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
         android:text="0"
-        android:textColor="@color/white" />
+        android:textAlignment="center"
+        android:background="@drawable/round_button_shape"
+        android:textColor="@color/white"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:id="@+id/text_view_cart_number"/>
 
     <TextView
         android:layout_width="wrap_content"
