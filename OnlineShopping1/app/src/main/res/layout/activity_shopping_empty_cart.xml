@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/text_view_shopping_cart"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/green"
+        android:gravity="center"
+        android:text="Shopping Cart"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="22dp" />
+
+    <ImageView
+        android:id="@+id/image_view_return"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/ic_baseline_keyboard_return_24" />
+    <!--    <ImageView-->
+    <!--        android:layout_width="30dp"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:src="@drawable/ic_baseline_refresh_24"-->
+    <!--        android:layout_alignParentRight="true"-->
+    <!--        android:layout_margin="3dp"-->
+    <!--        android:id="@+id/image_view_refresh"/>-->
+    <ImageView
+        android:id="@+id/image_view_show_cart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_toLeftOf="@id/text_view_cart_number"
+        android:src="@drawable/ic_baseline_add_shopping_cart_24" />
+
+    <TextView
+        android:id="@+id/text_view_cart_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:text="0"
+        android:textColor="@color/white" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Cart is Empty"
+        android:textSize="50dp" />
+    <!--    <Button-->
+    <!--        android:layout_alignParentBottom="true"-->
+    <!--        android:id="@+id/button_check_out"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="80dp"-->
+    <!--        android:text="Go Back Shopping" />-->
+
+
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/app_bar"/>
+    <EditText
+        android:id="@+id/edit_text_name_card"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:paddingLeft="30dp"
+        android:hint="CardHolder Name"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_address"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:id="@+id/edit_text_card_number"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:paddingLeft="30dp"
+        android:hint="Card Number"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_address"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/edit_text_cvs_card"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:paddingLeft="30dp"
+        android:hint="CVS"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_address"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/edit_text_start_date_card"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:paddingLeft="30dp"
+        android:hint="Card Start Date"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_address"
+        android:layout_marginTop="20dp"
+        />
+    <EditText
+        android:id="@+id/edit_text_end_date_Card"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:paddingLeft="30dp"
+        android:hint="Card End Date"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_address"
+        android:layout_marginTop="20dp"
+        />
+    <Button
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/edit_text_end_date_Card"
+        android:id="@+id/button_card_back_payment"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="Back to Payment" />
+</LinearLayout>

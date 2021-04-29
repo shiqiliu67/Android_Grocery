@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+
+        android:title="Shopping Cart"
+        android:id="@+id/menu_cart"
+        android:icon="@drawable/ic_baseline_shopping_cart_24" />
+    <item
+
+        android:title="Log Out"
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/ic_baseline_logout_24" />
+    <item
+        android:title="Settings"
+        android:id="@+id/menu_setting"
+        android:icon="@drawable/ic_baseline_settings_24" />
+    <item
+        android:title="Refresh"
+        android:id="@+id/menu_refresh"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_baseline_refresh_24" />
+    <item
+        android:title="My Account"
+        android:id="@+id/menu_my_account"
+        android:icon="@drawable/ic_baseline_account_circle_24" />
+    <item
+        android:title="Return"
+        android:id="@+id/menu_return"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_baseline_keyboard_return_24" />
+</menu>

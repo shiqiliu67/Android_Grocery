@@ -1,0 +1,29 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView
+        android:layout_marginTop="70dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/image_view_successful"
+        android:src="@drawable/ic_baseline_check_circle_24"
+        android:layout_centerHorizontal="true"/>
+    <TextView
+        android:layout_below="@id/image_view_successful"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Order Placed Successful !"
+        android:textSize="28dp"
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Back to Home"
+        android:id="@+id/button_back"/>
+</RelativeLayout>

@@ -1,0 +1,159 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <include layout="@layout/app_bar"/>
+    <TextView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:background="@color/green"
+        android:layout_height="200dp"
+        android:padding="16dp"
+        android:text="Amount to pay"
+        android:textSize="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:id="@+id/text_view_banner_payment"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="payment"
+        android:textSize="26dp"
+        android:textColor="@color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="130dp"
+        android:id="@+id/text_view_total_payment"
+        />
+
+    <TextView
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/text_view_banner_payment"
+        android:id="@+id/text_view_total_amount_payment"
+        android:text="Total : "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/text_view_total_amount_price_payment"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_banner_payment"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="140dp"
+        android:layout_marginRight="0dp"
+        android:gravity="center"
+        android:text="Price "
+        android:textSize="22dp" />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/text_view_total_amount_payment"
+        android:id="@+id/text_view_discount_amount_payment"
+        android:text="Discount : "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/text_view_total_amount_payment"
+        android:id="@+id/text_view_discount_amount_price_payment"
+        android:layout_alignParentRight="true"
+        android:text="Price "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_discount_amount_payment"
+        android:id="@+id/text_view_delivery_amount_payment"
+        android:text="Delivery : "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_discount_amount_payment"
+        android:id="@+id/text_view_delivery_amount_price_payment"
+        android:layout_alignParentRight="true"
+        android:text="Price "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+    <TextView
+        android:layout_marginLeft="10dp"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_delivery_amount_payment"
+        android:id="@+id/text_view_to_pay_amount_payment"
+        android:text="To pay : "
+        android:textSize="22dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+    <TextView
+        android:textStyle="bold"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/text_view_delivery_amount_payment"
+        android:id="@+id/text_view_to_pay_amount_price_payment"
+        android:layout_alignParentRight="true"
+        android:text="Price "
+        android:textSize="22dp"
+        android:gravity="center"
+        />
+   <TextView
+       android:layout_marginTop="30dp"
+       android:layout_marginLeft="10dp"
+       android:layout_width="wrap_content"
+       android:layout_height="40dp"
+       android:layout_below="@+id/text_view_to_pay_amount_price_payment"
+       android:id="@+id/text_view_to_pay_method_payment"
+       android:text="Payment Method : "
+       android:textSize="22dp"
+       android:gravity="center"
+       />
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/radio_choose_method"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/text_view_to_pay_amount_payment">
+        <RadioButton
+            android:id="@+id/radio_button_pay_online"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Pay Online" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Card Here"
+            android:textColor="@color/light_green"
+            android:textStyle="italic"
+            android:id="@+id/text_view_add_card"
+            />
+        <RadioButton
+            android:id="@+id/radio_button_pay_cash"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Pay Cash" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:text="Continue"
+        android:id="@+id/button_continue_payment"/>
+</RelativeLayout>

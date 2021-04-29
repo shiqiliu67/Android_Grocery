@@ -1,0 +1,100 @@
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="2"
+    android:orientation="vertical">
+    <include layout="@layout/app_bar"/>
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:src="@mipmap/ic_launcher"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:id="@+id/image_view_detail"
+        android:layout_gravity="center"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <TextView
+            android:id="@+id/text_view_product_name_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Name"
+            android:textSize="32dp"
+            android:textAlignment="center"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/text_view_product_unit_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_product_name_detail"
+            android:layout_centerHorizontal="true"
+            android:text="Unit"
+            android:textSize="22dp" />
+        <TextView
+            android:id="@+id/text_view_product_description_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/text_view_product_price_detail"
+            android:text="Description"
+            android:textSize="22dp"
+            android:textStyle="normal"/>
+        <TextView
+
+            android:id="@+id/text_view_product_price_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/text_view_product_unit_detail"
+            android:text="Price"
+            android:textSize="22dp"
+            android:textStyle="normal"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/text_view_product_mrp_detail"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="30dp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:text="MRP"-->
+<!--            android:textSize="10dp"-->
+<!--            android:textStyle="normal"-->
+<!--            android:layout_below="@id/text_view_product_description_detail"-->
+<!--            android:foreground="@drawable/strikethrough_foreground"/>-->
+
+        <Button
+            android:layout_marginTop="20dp"
+            android:layout_below="@id/text_view_product_description_detail"
+            android:id="@+id/button_add_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_marginRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:text="Add to Cart"
+            android:textSize="16dp"
+            android:textStyle="normal"/>
+        <Button
+            android:drawableRight="@drawable/ic_baseline_shopping_cart_24"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_below="@id/text_view_product_description_detail"
+            android:id="@+id/button_view_chart_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="View Cart"
+            android:textSize="16dp"
+            android:textStyle="normal"/>
+
+    </RelativeLayout>
+</LinearLayout>
+</ScrollView>

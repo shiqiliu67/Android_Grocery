@@ -1,0 +1,54 @@
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/food_background_copy"
+    >
+
+    <EditText
+        android:id="@+id/edit_text_login_email"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:textColorHint="@color/white"
+        android:paddingLeft="30dp"
+        android:hint="Email"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_shape"
+        android:layout_marginTop="200dp"
+        android:textColor="@color/white"
+        />
+    <EditText
+        android:id="@+id/edit_text_login_password"
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:textColorHint="@color/white"
+        android:paddingLeft="30dp"
+        android:hint="Password"
+        android:textSize="25dp"
+        android:background="@drawable/edit_text_shape"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:inputType="textPassword"
+        />
+    <Button
+        android:layout_marginTop="50dp"
+        android:layout_width="250dp"
+        android:layout_height="70dp"
+        android:id="@+id/button_login"
+        android:text="Login"
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/text_view_login_clicktext_jump"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="New user? Click Here"
+        android:textStyle="italic"
+        android:textColor="@color/white"
+       />
+</LinearLayout>
