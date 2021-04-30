@@ -1,0 +1,10 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:orientation="horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <ImageView
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/image_view_banner_main"/>
+</RelativeLayout>

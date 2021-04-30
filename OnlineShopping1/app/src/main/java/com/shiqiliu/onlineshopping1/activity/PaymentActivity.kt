@@ -158,7 +158,7 @@ class PaymentActivity : AppCompatActivity() {
         var mList = dbHelper.getAllProduct()
         //from address activity
         var address =
-            intent.getSerializableExtra("KEY_Address") as com.shiqiliu.onlineshopping1.modules.Address
+        intent.getSerializableExtra("KEY_Address") as com.shiqiliu.onlineshopping1.modules.Address
         Log.d("abc", "address:$address")
         //put order summary into orderJsonObject
         var orderJsonObject = JSONObject()
@@ -168,7 +168,7 @@ class PaymentActivity : AppCompatActivity() {
         orderJsonObject.put("deliveryCharges", delivery)
         orderJsonObject.put("totalAmount", totalPrice)
 
-        //payment into paymentJsonObject // _id: String, paymentMode paymentStatu s
+        //payment into paymentJsonObject // _id: String, paymentMode paymentStatus
         var paymentJsonObject = JSONObject()
         paymentJsonObject.put("paymentMode", payment_method)
         paymentJsonObject.put("paymentStatus", orderStatus)

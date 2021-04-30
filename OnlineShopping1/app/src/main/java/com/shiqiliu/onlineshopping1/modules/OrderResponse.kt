@@ -15,7 +15,8 @@ data class Order(
     val orderStatus: String,
     val orderSummary: OrderSummary,
     val payment: Payment,
-    val products: List<ProductData>,
+    val products: ArrayList<Product>,
+  //  val products: ArrayList<ProductData>,
     val shippingAddress: ShippingAddress,
     val user: User,
     val userId: String
@@ -47,7 +48,7 @@ data class ShippingAddress(
 data class ProductData(
     var _id: String,
     var image: String,
-    var price: Int,
+    var price: Float,
     var productName: String,
     var quantity :Int
 ): Serializable

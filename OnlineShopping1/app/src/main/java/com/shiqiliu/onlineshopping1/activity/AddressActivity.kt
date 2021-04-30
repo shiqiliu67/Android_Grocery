@@ -104,6 +104,7 @@ class AddressActivity : AppCompatActivity() {
             var address = addressAdapter.getAddress()
             Log.d("abc","$address")
             intent.putExtra("KEY_Address", address)
+            Log.d("abc","$address")
             startActivity(intent)
 
         }

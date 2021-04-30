@@ -6,7 +6,7 @@ data class CategoryResponse(
     val count: Int,
     val data:  ArrayList<Category>,
     val error: Boolean
-)
+): Serializable
 
 data class Category(
     val __v: Int,
@@ -18,6 +18,6 @@ data class Category(
     val position: Int,
     val slug: String,
     val status: Boolean
-)
+): Serializable
 
 

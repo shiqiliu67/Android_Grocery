@@ -1,9 +1,11 @@
 package com.shiqiliu.onlineshopping1.modules
 
+import java.io.Serializable
+
 data class UserResponse(
     val token: String,
     val user: User
-)
+): Serializable
 
 data class User(
     //val __v: Int,
@@ -13,4 +15,4 @@ data class User(
     val firstName: String,
     val mobile: String,
     val password: String
-)
+): Serializable

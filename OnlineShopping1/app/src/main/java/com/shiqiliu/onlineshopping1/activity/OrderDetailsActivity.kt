@@ -20,7 +20,7 @@ class OrderDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_order_details)
-  //      init()
+        init()
     }
 
     private fun init() {
@@ -29,10 +29,11 @@ class OrderDetailsActivity : AppCompatActivity() {
         view_pager_order.adapter = adapterOrderDetails
         tab_layout.setupWithViewPager(view_pager_order)
 
-        //var id = intent.getStringExtra("KEY_Id")
+       // var id = intent.getStringExtra("KEY_Id")
         //put data in to summary fragment
         var order = intent.getSerializableExtra("KEY_Order") as Order
         adapterOrderDetails.addFragment(order)
+
     }
     fun setUpToolBar(){
         var toolbar = toolbar

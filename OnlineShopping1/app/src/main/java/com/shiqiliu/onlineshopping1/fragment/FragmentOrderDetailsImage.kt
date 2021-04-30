@@ -24,15 +24,19 @@ import kotlinx.android.synthetic.main.fragment_order_image.view.*
 
 
 class FragmentOrderDetailsImage : Fragment() {
-    private var mList: ArrayList<Order> = ArrayList()
     var mContext: Context? = null
-    var id: String? = null
+    var products: ArrayList<Product>? = null
+    var order: Order? = null
     lateinit var adapterOrderDetailsImage: AdapterOrderDetailsImage
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            id = it.getString("KEY_ID")
+           // products = it.getSerializable("KEY_Order") as ArrayList<Product>
+            order = it.getSerializable("KEY_Order") as Order
+            Log.d("abc","Fragment order 2 $order")
+            products = order!!.products
+            Log.d("abc","2 Fragment product are $products")
         }
     }
 
@@ -41,41 +45,36 @@ class FragmentOrderDetailsImage : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         var view = inflater.inflate(R.layout.fragment_order_image, container, false)
-        getOrderData()
         adapterOrderDetailsImage = AdapterOrderDetailsImage(activity!!)
         view.recycler_view_order_item.adapter = adapterOrderDetailsImage
         view.recycler_view_order_item.layoutManager = LinearLayoutManager(activity)
 
+        init()
         return view
     }
 
-    private fun getOrderData() {
-        var requestQueue = Volley.newRequestQueue(activity)
-        var request = StringRequest(
-            Request.Method.GET,
-            Endpoints.getOrders(id!!),
-            Response.Listener {
-                var gson = Gson()
-                var orderResponse = gson.fromJson(it, OrderResponse::class.java)
-                mList = orderResponse.data as ArrayList<Order>
-                Log.d("abd", "$mList")
-                adapterOrderDetailsImage.setData(mList)
-            },
-            Response.ErrorListener {
-                Toast.makeText(mContext, "failed", Toast.LENGTH_SHORT).show()
-                Log.d("abc", it.message.toString())
-            }
-        )
-        requestQueue.add(request)
+    private fun init() {
+        adapterOrderDetailsImage.setData(products!!)
     }
 
     companion object {
-        fun newInstance(param1: String, param2: String) =
+        @JvmStatic
+        fun newInstance(order:Order) =
             FragmentOrderDetailsImage().apply {
                 arguments = Bundle().apply {
-                    putString("KEY_ID",id)
-                    //putString(ARG_PARAM2, param2)
+                    putSerializable("KEY_Order", order)
+                    Log.d("abc","Fragment order $order")
                 }
             }
     }
+
+//    companion object {
+//        fun newInstance(products: ArrayList<Product>) =
+//            FragmentOrderDetailsImage().apply {
+//                arguments = Bundle().apply {
+//                    putSerializable("KEY_Order", products)
+//                    Log.d("abc","1 Fragment product are $products")
+//                }
+//            }
+//    }
 }

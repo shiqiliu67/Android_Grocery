@@ -8,13 +8,13 @@
         android:src="@mipmap/ic_launcher"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:id="@+id/image_view_order_fragment"
+        android:id="@+id/image_view_order_fragment_image"
         />
     <TextView
         android:id="@+id/text_view_order_product_name_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/image_view_order_fragment"
+        android:layout_toRightOf="@id/image_view_order_fragment_image"
         android:text="Name"
         android:textSize="26dp"
         android:textStyle="bold"/>
@@ -22,7 +22,7 @@
         android:id="@+id/text_view_order_product_quantity_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/image_view_order_fragment"
+        android:layout_toRightOf="@id/image_view_order_fragment_image"
         android:layout_below="@id/text_view_order_product_name_fragment"
         android:text="Quantity"
         android:layout_marginTop="15dp"
@@ -33,7 +33,7 @@
         android:id="@+id/text_view_order_product_price_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/image_view_order_fragment"
+        android:layout_toRightOf="@id/image_view_order_fragment_image"
         android:layout_marginTop="20dp"
         android:layout_below="@id/text_view_order_product_quantity_fragment"
         android:text="Price"

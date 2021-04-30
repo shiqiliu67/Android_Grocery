@@ -6,7 +6,7 @@ data class ProductResponse(
     val count: Int,
     val data: ArrayList<Product>,
     val error: Boolean
-)
+): Serializable
 
 data class Product(
     val __v: Int?,
@@ -36,4 +36,4 @@ data class ProductCart(
     val price: Float,
     val image: String,
     val unit: Int
-)
+): Serializable

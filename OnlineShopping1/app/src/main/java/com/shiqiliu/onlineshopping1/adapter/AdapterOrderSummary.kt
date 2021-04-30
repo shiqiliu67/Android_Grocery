@@ -11,6 +11,8 @@ import com.shiqiliu.onlineshopping1.R
 import com.shiqiliu.onlineshopping1.activity.OrderDetailsActivity
 import com.shiqiliu.onlineshopping1.modules.Order
 import kotlinx.android.synthetic.main.row_orders_summary_adapter.view.*
+import java.text.ParseException
+import java.text.SimpleDateFormat
 
 class AdapterOrderSummary(var mContext: Context) :
     RecyclerView.Adapter<AdapterOrderSummary.myViewHolder>() {
@@ -18,7 +20,7 @@ class AdapterOrderSummary(var mContext: Context) :
 
     inner class myViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(order: Order) {
-            itemView.text_view_order_date.text = order.date
+            itemView.text_view_order_date.text = convertMongoDate(order.date)
             itemView.text_view_order_amount.text = "$${order.orderSummary.orderAmount}"
             //for-loop
             var productNameTotal: String = ""
@@ -34,7 +36,7 @@ class AdapterOrderSummary(var mContext: Context) :
             itemView.setOnClickListener {
                 var intent = Intent(mContext, OrderDetailsActivity::class.java)
                 intent.putExtra("KEY_Order", order)
-               // intent.putExtra("KEY_Id", order._id)
+                //intent.putExtra("KEY_Id", order._id)
                 Log.d("abc", "Order is $order")
                 mContext.startActivity(intent)
 
@@ -62,6 +64,18 @@ class AdapterOrderSummary(var mContext: Context) :
     fun setData(list: ArrayList<Order>) {
         mList = list
         notifyDataSetChanged()
+    }
+    fun convertMongoDate(date: String): String? {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val outputFormat = SimpleDateFormat("MMM d, yyyy")
+        try {
+            val finalStr: String = outputFormat.format(inputFormat.parse(date))
+            println(finalStr)
+            return finalStr
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return ""
     }
 
 }

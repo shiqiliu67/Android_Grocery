@@ -6,7 +6,7 @@ data class AddressResponse(
     var data: ArrayList<Address>,
     var error: Boolean,
     var message: String
-)
+): Serializable
 
 data class Address(
     var __v: Int,

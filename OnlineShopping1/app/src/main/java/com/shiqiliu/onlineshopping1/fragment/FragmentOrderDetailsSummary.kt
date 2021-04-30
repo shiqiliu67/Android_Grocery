@@ -20,6 +20,9 @@ import com.shiqiliu.onlineshopping1.modules.OrderResponse
 import com.shiqiliu.onlineshopping1.modules.Product
 import com.shiqiliu.onlineshopping1.modules.ProductResponse
 import kotlinx.android.synthetic.main.fragment_order_summary.*
+import kotlinx.android.synthetic.main.fragment_order_summary.view.*
+import java.text.ParseException
+import java.text.SimpleDateFormat
 
 class FragmentOrderDetailsSummary : Fragment() {
     var mContext: Context? = null
@@ -28,9 +31,8 @@ class FragmentOrderDetailsSummary : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            //param1 = it.getString(ARG_PARAM1)
-            //get data
             order = it.getSerializable("KEY_Order") as Order
+            Log.d("abc","Fragment order 2 $order")
         }
     }
 
@@ -39,27 +41,50 @@ class FragmentOrderDetailsSummary : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        Log.d("abc","Fragment order 3 $order")
         var view = inflater.inflate(R.layout.fragment_order_summary, container, false)
-        text_view_order_date_fragment.text = order?.date!!
-        text_view_order_address_fragment.text =  order?.shippingAddress.toString()
-        text_view_order_summary.text = order?.orderSummary?.totalAmount.toString()
-        text_view_discount_amount_price_payment.text = order?.orderSummary?.discount.toString()
-        text_view_delivery_amount_price_payment.text = order?.orderSummary?.deliveryCharges.toString()
-        text_view_to_pay_amount_price_payment_fragment.text = order?.orderSummary?.ourPrice.toString()
+        //init(view)
+        Log.d("abc","Fragment order 4 $order")
+        //text_view_order_date_fragment
+        view.text_view_order_date_fragment.text = convertMongoDate(order!!.date)
+        Log.d("abc","Fragment order 5 $order")
+        view.text_view_order_address_fragment.text =  getAddressInfo(order!!)
+        view.text_view_total_amount_price_payment.text = order!!.orderSummary.totalAmount.toString()
+        view.text_view_discount_amount_price_payment.text = order!!.orderSummary.discount.toString()
+        view.text_view_delivery_amount_price_payment.text = order!!.orderSummary.deliveryCharges.toString()
+        view.text_view_to_pay_amount_price_payment_fragment.text = order!!.orderSummary.ourPrice.toString()
+        Log.d("abc","product are ${order!!.products}")
         return view
     }
 
 
+    fun getAddressInfo(order:Order):String{
+        return "Street Name: ${order.shippingAddress.streetName}\nHouse No: ${order.shippingAddress.houseNo}\n" +
+                "City: ${order.shippingAddress.city}\nPincode: ${order.shippingAddress.pincode}\n" +
+                "Type: ${order.shippingAddress.type}  "
+    }
+    fun convertMongoDate(date: String): String? {
+        val inputFormat = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+        val outputFormat = SimpleDateFormat("MMM d, yyyy")
+        try {
+            val finalStr: String = outputFormat.format(inputFormat.parse(date))
+            println(finalStr)
+            return finalStr
+        } catch (e: ParseException) {
+            e.printStackTrace()
+        }
+        return ""
+    }
 
-
-
-companion object {
+    companion object {
     @JvmStatic
     fun newInstance(order:Order) =
         FragmentOrderDetailsSummary().apply {
             arguments = Bundle().apply {
                 putSerializable("KEY_Order", order)
+                Log.d("abc","Fragment order $order")
             }
         }
 }
+
 }

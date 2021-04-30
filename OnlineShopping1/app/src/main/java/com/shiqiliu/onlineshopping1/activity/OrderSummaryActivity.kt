@@ -23,6 +23,8 @@ import com.shiqiliu.onlineshopping1.modules.Order
 import com.shiqiliu.onlineshopping1.modules.OrderResponse
 import kotlinx.android.synthetic.main.activity_order_summary.*
 import kotlinx.android.synthetic.main.app_bar.*
+import java.util.*
+import kotlin.collections.ArrayList
 
 class OrderSummaryActivity : AppCompatActivity() {
     lateinit var adapterOrderSummary: AdapterOrderSummary
@@ -98,6 +100,7 @@ class OrderSummaryActivity : AppCompatActivity() {
                 var orderResponse = gson.fromJson(it, OrderResponse::class.java)
                 orderList = orderResponse.data as ArrayList<Order>
                 Log.d("abd", "$orderList")
+                orderList.reverse()
                adapterOrderSummary.setData(orderList)
             },
             Response.ErrorListener {

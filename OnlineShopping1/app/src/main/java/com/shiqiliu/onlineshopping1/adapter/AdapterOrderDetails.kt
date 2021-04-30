@@ -9,8 +9,8 @@ import com.shiqiliu.onlineshopping1.modules.Order
 
 
 class AdapterOrderDetails (fm:FragmentManager):FragmentPagerAdapter(fm){
-    var mFragment : ArrayList<Fragment> = ArrayList()
-    var mTitle: ArrayList<String> = ArrayList()
+    lateinit var fragment1 : Fragment
+    lateinit var fragment2 : Fragment
     override fun getCount(): Int {
        // return mFragment.size
       return  2
@@ -19,12 +19,16 @@ class AdapterOrderDetails (fm:FragmentManager):FragmentPagerAdapter(fm){
     override fun getItem(position: Int): Fragment {
        // return mFragment[position]
         return when(position){
-            0->FragmentOrderDetailsSummary()
-            else->FragmentOrderDetailsImage()
+            //0->FragmentOrderDetailsSummary()
+                0->fragment1
+            else->fragment2
         }
     }
     fun addFragment(order: Order){
-        mFragment.add(FragmentOrderDetailsSummary.newInstance(order))
+      //  mFragment.add(FragmentOrderDetailsSummary.newInstance(order))
+        fragment1 = FragmentOrderDetailsSummary.newInstance(order)
+        //fragment2 = FragmentOrderDetailsImage.newInstance(order.products)
+        fragment2 = FragmentOrderDetailsImage.newInstance(order)
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
