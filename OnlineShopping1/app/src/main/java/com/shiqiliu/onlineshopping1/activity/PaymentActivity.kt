@@ -112,22 +112,40 @@ class PaymentActivity : AppCompatActivity() {
         text_view_to_pay_amount_price_payment.text = "$$toPay"
 
         // var orderSummary = OrderSummary()
-        button_continue_payment.setOnClickListener {
-            if (checkClickButton()) {
-                var intent = Intent(this, CompleteActivity::class.java)
-                startActivity(intent)
-            } else {
-                Toast.makeText(applicationContext, "Choose Payment Method", Toast.LENGTH_SHORT)
-                    .show()
-            }
+        var address =
+            intent.getSerializableExtra("KEY_Address") as com.shiqiliu.onlineshopping1.modules.Address
+        Log.d("abc", "address1:$address")
+        //set button click
 
+        radio_button_pay_cash.setOnClickListener {
+            orderStatus ="completed"
+            payment_method = "cash"
+            OrderSummary()
+            click = true
         }
+        radio_button_pay_online.setOnClickListener {
+            orderStatus ="completed"
+            payment_method = "online"
+            OrderSummary()
+            click = true
+        }
+
+      //  if(checkClickButton()){
+        button_continue_payment.setOnClickListener {
+            var intent = Intent(this, CompleteActivity::class.java)
+            startActivity(intent)
+        }
+        //}
+//        else{
+//            Toast.makeText(applicationContext,"Choose Payment Method First",Toast.LENGTH_SHORT).show()
+//        }
 
 
         text_view_add_card.setOnClickListener {
             if (goTocard) {
                 goTocard = false
                 var intent = Intent(this, CardActivity::class.java)
+                intent.putExtra("KEY_Address", address)
                 startActivity(intent)
                 finish()
             }
@@ -138,18 +156,18 @@ class PaymentActivity : AppCompatActivity() {
 //checkevennt
     private fun checkClickButton(): Boolean {
         radio_button_pay_cash.setOnClickListener {
-            click = true
             orderStatus ="completed"
             payment_method = "cash"
             OrderSummary()
+            click = true
         }
         radio_button_pay_online.setOnClickListener {
-            click = true
             orderStatus ="completed"
             payment_method = "online"
             OrderSummary()
+            click = true
         }
-        return click
+        return false
     }
 
     private fun OrderSummary() {

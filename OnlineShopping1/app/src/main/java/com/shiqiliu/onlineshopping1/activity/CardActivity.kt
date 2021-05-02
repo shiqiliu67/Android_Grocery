@@ -3,6 +3,7 @@ package com.shiqiliu.onlineshopping1.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -44,6 +45,12 @@ class CardActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "MyAccount", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_return->{
+                var intent = Intent(this,PaymentActivity::class.java)
+                var address =
+                intent.getSerializableExtra("KEY_Address") as com.shiqiliu.onlineshopping1.modules.Address
+                Log.d("abc", "address1:$address")
+                intent.putExtra("KEY_Address", address)
+                startActivity(intent)
                 Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_refresh->{
@@ -58,10 +65,14 @@ class CardActivity : AppCompatActivity() {
 
 
     private fun init() {
+        var address =
+            intent.getSerializableExtra("KEY_Address") as com.shiqiliu.onlineshopping1.modules.Address
+        Log.d("abc", "address1:$address")
        setUpToolBar()
        button_card_back_payment.setOnClickListener {
                Toast.makeText(applicationContext, "Continue Payment", Toast.LENGTH_SHORT).show()
            var intent = Intent(this,PaymentActivity::class.java)
+           intent.putExtra("KEY_Address", address)
            startActivity(intent)
        }
         button_card_add_card.setOnClickListener {
@@ -71,8 +82,9 @@ class CardActivity : AppCompatActivity() {
             var cardDate = edit_text_end_date_Card.text.toString()
             var cardCvc = edit_text_cvs_card.text.toString().toInt()
             var zipCode = edit_text_start_date_card.text.toString().toInt()
-            var sessionManager = SessionManager(this)
+            var sessionManager = SessionManagerCard(this)
             sessionManager.addCardInfo(cardNumber,cardName,cardDate,cardCvc,zipCode)
+            Log.d("abc","$cardNumber,$cardCvc,$cardDate,$cardNumber")
 
         }
     }

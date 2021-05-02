@@ -46,7 +46,7 @@ class MyAccountActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_refresh->{
-                var intent = Intent(this,PaymentActivity::class.java)
+                var intent = Intent(this,MyAccountActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "Refresh", Toast.LENGTH_SHORT).show()
             }

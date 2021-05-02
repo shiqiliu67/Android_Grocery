@@ -56,6 +56,7 @@
         android:layout_height="wrap_content"
         android:text="Change A Card? Click Here"
         android:id="@+id/text_view_change_card"
+        android:textColor="@color/light_green"
         android:layout_below="@+id/image_view_card_png"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"

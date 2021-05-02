@@ -26,7 +26,7 @@ class ManageCardActivity : AppCompatActivity() {
         var sessionManager = getSharedPreferences("my_pref_card",Context.MODE_PRIVATE)
         var cardNumber = sessionManager.getString("cardNumber","")
         var cardDate =  sessionManager.getString("expiration","")
-        var cardName =sessionManager.getString("expiration","name")
+        var cardName =sessionManager.getString("name","")
         Log.d("abc","$cardNumber,$cardDate,$cardName")
         text_view_card_number_manager.text = cardNumber
         text_view_manager_date.text = cardDate
@@ -62,11 +62,12 @@ class ManageCardActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()}
             R.id.menu_return->{
                 var intent = Intent(this,MainActivity::class.java)
+
                 startActivity(intent)
                 Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_refresh->{
-                var intent = Intent(this,PaymentActivity::class.java)
+                var intent = Intent(this,ManageCardActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "Refresh", Toast.LENGTH_SHORT).show()
             }
