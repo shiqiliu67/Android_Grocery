@@ -61,6 +61,15 @@
         android:background="@drawable/text_view_shape"
         android:text="\n\t\t\tManager Address"
         android:textSize="20dp" />
+    <TextView
+        android:id="@+id/text_view_manager_card"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/text_view_manager_address"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/text_view_shape"
+        android:text="\n\t\t\tManager Card"
+        android:textSize="20dp" />
 
 
 </RelativeLayout>

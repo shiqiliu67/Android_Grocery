@@ -49,10 +49,10 @@ class FragmentOrderDetailsSummary : Fragment() {
         view.text_view_order_date_fragment.text = convertMongoDate(order!!.date)
         Log.d("abc","Fragment order 5 $order")
         view.text_view_order_address_fragment.text =  getAddressInfo(order!!)
-        view.text_view_total_amount_price_payment.text = order!!.orderSummary.totalAmount.toString()
-        view.text_view_discount_amount_price_payment.text = order!!.orderSummary.discount.toString()
-        view.text_view_delivery_amount_price_payment.text = order!!.orderSummary.deliveryCharges.toString()
-        view.text_view_to_pay_amount_price_payment_fragment.text = order!!.orderSummary.ourPrice.toString()
+        view.text_view_total_amount_price_payment.text = "$${order!!.orderSummary.totalAmount.toString()}"
+        view.text_view_discount_amount_price_payment.text = "-$${order!!.orderSummary.discount.toString()}"
+        view.text_view_delivery_amount_price_payment.text = "$${order!!.orderSummary.deliveryCharges.toString()}"
+        view.text_view_to_pay_amount_price_payment_fragment.text = "$${order!!.orderSummary.ourPrice.toString()}"
         Log.d("abc","product are ${order!!.products}")
         return view
     }

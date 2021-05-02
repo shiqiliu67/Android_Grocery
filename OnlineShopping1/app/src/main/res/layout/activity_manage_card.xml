@@ -1,0 +1,68 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <include layout="@layout/app_bar" />
+    <ImageView
+        android:id="@+id/image_view_card_png"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/bank_card_1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="A Bank"
+        android:textStyle="bold"
+        android:layout_alignParentRight="true"
+        android:textSize="32dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginRight="30dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234 5678 9876 5432"
+        android:id="@+id/text_view_card_number_manager"
+        android:layout_marginTop="230dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="26dp"
+        />
+    <TextView
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_view_card_exp_manager"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/text_view_card_number_manager"
+        android:text="VALID THRD:"
+        android:layout_marginLeft="50dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_manager_date"
+        android:text="XX/XXXX"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/text_view_card_exp_manager"/>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/text_view_manager_name"
+        android:text="Card Holder Name"
+        android:layout_marginLeft="50dp"
+        android:layout_below="@+id/text_view_manager_date"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Change A Card? Click Here"
+        android:id="@+id/text_view_change_card"
+        android:layout_below="@+id/image_view_card_png"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textSize="18dp"
+        android:textStyle="italic"
+        />
+
+
+
+</RelativeLayout>

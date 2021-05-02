@@ -20,7 +20,7 @@ class MyAccountActivity : AppCompatActivity() {
     }
     fun setUpToolBar(){
         var toolbar = toolbar
-        toolbar.title = "Payment"
+        toolbar.title = "My Account"
         setSupportActionBar(toolbar)
         //supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
     }
@@ -41,7 +41,7 @@ class MyAccountActivity : AppCompatActivity() {
                 startActivity(intent)
                 Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()}
             R.id.menu_return->{
-                var intent = Intent(this,AddressActivity::class.java)
+                var intent = Intent(this,MainActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
             }
@@ -77,7 +77,10 @@ class MyAccountActivity : AppCompatActivity() {
         var name = sharedPreferences.getString("firstName","")
         text_view_account_name.text = name
         text_view_account_id.text = "user_id: $userId"
-
+        text_view_manager_card.setOnClickListener {
+            var intent = Intent(this,ManageCardActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }

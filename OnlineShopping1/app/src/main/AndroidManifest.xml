@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlineShopping1"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.SearchActivity"></activity>
+        <activity android:name=".activity.ManageCardActivity"></activity>
+        <activity android:name=".activity.SearchActivity" />
         <activity android:name=".activity.OrderDetailsActivity" />
         <activity android:name=".activity.OrderSummaryActivity" />
         <activity android:name=".activity.MyAccountActivity" />

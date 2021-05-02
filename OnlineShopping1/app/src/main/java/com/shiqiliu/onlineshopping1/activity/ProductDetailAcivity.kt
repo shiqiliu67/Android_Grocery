@@ -3,6 +3,7 @@ package com.shiqiliu.onlineshopping1.activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
@@ -17,6 +18,7 @@ import kotlinx.android.synthetic.main.app_bar.*
 
 class ProductDetailAcivity : AppCompatActivity() {
     lateinit var dbHelper: DBHelper
+    lateinit var product: Product
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_product_detail_acivity)
@@ -45,8 +47,10 @@ class ProductDetailAcivity : AppCompatActivity() {
                 startActivity(intent)
                 Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()}
             R.id.menu_return->{
-//                var intent = Intent(this,SubCategoryActivity::class.java)
-//                startActivity(intent)
+                var intent = Intent(this,SubCategoryActivity::class.java)
+                Log.d("abc","product $product")
+                intent.putExtra("Cat_Id",product.catId)
+                startActivity(intent)
                 Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_refresh->{
@@ -65,7 +69,7 @@ class ProductDetailAcivity : AppCompatActivity() {
     private fun init() {
         setUpToolBar()
         dbHelper = DBHelper(this)
-        var product = intent.getSerializableExtra(KEY_Product) as Product
+        product = intent.getSerializableExtra(KEY_Product) as Product
 
         text_view_product_name_detail.text = product.productName
         text_view_product_unit_detail.text = product.unit

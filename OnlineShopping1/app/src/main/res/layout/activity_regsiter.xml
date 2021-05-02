@@ -1,24 +1,41 @@
-<LinearLayout
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="@drawable/food_background_copy"
-    >
+    android:background="@drawable/food_background_copy">
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:errorTextColor="@color/red"
+        android:id="@+id/text_input_layout1">
     <EditText
         android:id="@+id/edit_text_register_name"
         android:layout_width="350dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
         android:textColorHint="@color/white"
-        android:paddingLeft="30dp"
+        android:paddingLeft="50dp"
         android:hint="Name"
         android:textSize="25dp"
         android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="100dp"
         android:textColor="@color/white"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:errorTextColor="@color/red"
+        android:id="@+id/text_input_layout2">
     <EditText
         android:id="@+id/edit_text_register_email"
         android:layout_width="350dp"
@@ -29,9 +46,18 @@
         android:hint="Email"
         android:textSize="25dp"
         android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:errorTextColor="@color/red"
+        android:id="@+id/text_input_layout3">
     <EditText
         android:id="@+id/edit_text_register_password"
         android:layout_width="350dp"
@@ -42,9 +68,18 @@
         android:hint="Password"
         android:textSize="25dp"
         android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        app:errorTextColor="@color/red"
+        android:id="@+id/text_input_layout4">
     <EditText
         android:id="@+id/edit_text_register_phone_number"
         android:layout_width="350dp"
@@ -55,9 +90,9 @@
         android:hint="Phone Number"
         android:textSize="25dp"
         android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="20dp"
         android:textColor="@color/white"
         />
+    </com.google.android.material.textfield.TextInputLayout>
     <Button
         android:layout_marginTop="50dp"
         android:layout_width="250dp"

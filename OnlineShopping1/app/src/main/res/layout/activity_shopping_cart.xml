@@ -94,6 +94,7 @@
         android:layout_below="@id/text_view_total_amount"
         android:id="@+id/text_view_discount_amount_price"
         android:layout_alignParentRight="true"
+        android:textColor="@color/red"
         android:text="Price "
         android:textSize="22dp"
         android:gravity="center"

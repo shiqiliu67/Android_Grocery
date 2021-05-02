@@ -14,6 +14,8 @@ class SessionManager (var mContext: Context){
     private val Key_Delivery="delivery"
     private val KEY_ToPay="toPay"
 
+
+
     var sharedPreferences = mContext.getSharedPreferences(File_Name,Context.MODE_PRIVATE)
     var editor = sharedPreferences.edit()
     //user:JSONObject,it:JSONObject
@@ -25,28 +27,23 @@ class SessionManager (var mContext: Context){
 
         editor.commit()
     }
-//    fun isLoggedIn(): Boolean{
-//        return sharedPreferences.getBoolean(KEY_IS_LOGGED_IN, false)
-//    }
-//    fun login( email:String, password:String):Boolean{
-//        var saveEmail = sharedPreferences.getString(Key_Email,null)
-//        var savePassword = sharedPreferences.getString(Key_Password,null)
-//        return email.equals(saveEmail) && password.equals(savePassword)
-//    }
-//    fun logout(){
-//        editor.clear()
-//        editor.commit()
-//    }
-    fun getPayment(): String? {
-       return sharedPreferences.getString("Key_Total","")
-    }
-    fun getDiscount(): String? {
-        return sharedPreferences.getString("Key_Discount","")
-    }
-    fun getDelivery(): String? {
-        return sharedPreferences.getString("Key_Delivery","")
-    }
-    fun getToPay(): String? {
-        return sharedPreferences.getString("KEY_ToPay","")
+
+    //card
+    private val File_Name_Card ="my_pref_card"
+    private val Key_Card_Number="cardNumber"
+    private val Key_CardName="name"
+    private val Key_Card_date="expiration"
+    private val KEY_Card_Cvc="cvc"
+    private val KEY_Card_ZipCode="zipcode"
+    var sharedPreferences_card = mContext.getSharedPreferences(File_Name_Card,Context.MODE_PRIVATE)
+    var editor_card = sharedPreferences_card.edit()
+    fun addCardInfo(cardNumber:String,cardName:String,cardDate:String,cardCVC:Int,zipcode:Int){
+        editor_card.putString(Key_Card_Number,cardNumber)
+        editor_card.putString(Key_CardName,cardName)
+        editor_card.putString(Key_Card_date,cardDate)
+        editor_card.putString(KEY_Card_Cvc,cardCVC.toString())
+        editor_card.putString(KEY_Card_ZipCode,zipcode.toString())
+
+        editor.commit()
     }
 }

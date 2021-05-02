@@ -1,11 +1,20 @@
-<LinearLayout
-    android:layout_width="match_parent"
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:padding="10dp"
     android:orientation="vertical"
-    android:background="@drawable/food_background_copy"
-    >
+    android:background="@drawable/food_background_copy">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        app:errorTextColor="@color/red"
+        android:textColorHint="@color/white"
+        app:hintTextColor="@color/white"
+        android:id="@+id/text_input_layout">
 
     <EditText
         android:id="@+id/edit_text_login_email"
@@ -17,9 +26,18 @@
         android:hint="Email"
         android:textSize="25dp"
         android:background="@drawable/edit_text_shape"
-        android:layout_marginTop="200dp"
         android:textColor="@color/white"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="350dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        app:errorTextColor="@color/red"
+        app:hintTextColor="@color/white"
+        android:textColorHint="@color/white"
+        android:id="@+id/text_input_layout_1">
+
     <EditText
         android:id="@+id/edit_text_login_password"
         android:layout_width="350dp"
@@ -34,6 +52,8 @@
         android:textColor="@color/white"
         android:inputType="textPassword"
         />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:layout_marginTop="50dp"
         android:layout_width="250dp"

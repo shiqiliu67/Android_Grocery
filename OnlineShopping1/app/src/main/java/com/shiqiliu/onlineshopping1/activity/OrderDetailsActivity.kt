@@ -57,13 +57,13 @@ class OrderDetailsActivity : AppCompatActivity() {
                 startActivity(intent)
                 Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()}
             R.id.menu_return->{
-                var intent = Intent(this,MainActivity::class.java)
+                var intent = Intent(this,OrderSummaryActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_refresh->{
-                var intent = Intent(this,OrderDetailsActivity::class.java)
-                startActivity(intent)
+               // var intent = Intent(this,OrderDetailsActivity::class.java)
+               // startActivity(intent)
                 Toast.makeText(applicationContext, "Refresh", Toast.LENGTH_SHORT).show()
             }
             R.id.menu_my_account->{

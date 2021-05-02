@@ -1,26 +1,48 @@
 package com.shiqiliu.onlineshopping1.activity
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import com.shiqiliu.onlineshopping1.R
-import kotlinx.android.synthetic.main.activity_card.*
+import kotlinx.android.synthetic.main.activity_manage_card.*
+import kotlinx.android.synthetic.main.activity_my_account.*
 import kotlinx.android.synthetic.main.app_bar.*
 
-class CardActivity : AppCompatActivity() {
+class ManageCardActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_card)
+        setContentView(R.layout.activity_manage_card)
         init()
+    }
+
+    private fun init() {
+        setUpToolBar()
+
+        var sessionManager = getSharedPreferences("my_pref_card",Context.MODE_PRIVATE)
+        var cardNumber = sessionManager.getString("cardNumber","")
+        var cardDate =  sessionManager.getString("expiration","")
+        var cardName =sessionManager.getString("expiration","name")
+        Log.d("abc","$cardNumber,$cardDate,$cardName")
+        text_view_card_number_manager.text = cardNumber
+        text_view_manager_date.text = cardDate
+        text_view_manager_name.text = cardName
+
+        text_view_change_card.setOnClickListener {
+            var intent = Intent(this,CardActivity::class.java)
+            startActivity(intent)
+        }
+
+
     }
     fun setUpToolBar(){
         var toolbar = toolbar
-        toolbar.title = "Add Card Information"
+        toolbar.title = "My Card"
         setSupportActionBar(toolbar)
-        //supportActionBar?.setDefaultDisplayHomeAsUpEnabled(true)
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -38,42 +60,23 @@ class CardActivity : AppCompatActivity() {
                 var intent = Intent(this,BeginActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "Logout", Toast.LENGTH_SHORT).show()}
+            R.id.menu_return->{
+                var intent = Intent(this,MainActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
+            }
+            R.id.menu_refresh->{
+                var intent = Intent(this,PaymentActivity::class.java)
+                startActivity(intent)
+                Toast.makeText(applicationContext, "Refresh", Toast.LENGTH_SHORT).show()
+            }
             R.id.menu_my_account->{
                 var intent = Intent(this,MyAccountActivity::class.java)
                 startActivity(intent)
                 Toast.makeText(applicationContext, "MyAccount", Toast.LENGTH_SHORT).show()
             }
-            R.id.menu_return->{
-                Toast.makeText(applicationContext, "return", Toast.LENGTH_SHORT).show()
-            }
-            R.id.menu_refresh->{
-                var intent = Intent(this,this::class.java)
-                startActivity(intent)
-                Toast.makeText(applicationContext, "Refresh", Toast.LENGTH_SHORT).show()
-            }
         }
-
         return true
     }
 
-
-    private fun init() {
-       setUpToolBar()
-       button_card_back_payment.setOnClickListener {
-               Toast.makeText(applicationContext, "Continue Payment", Toast.LENGTH_SHORT).show()
-           var intent = Intent(this,PaymentActivity::class.java)
-           startActivity(intent)
-       }
-        button_card_add_card.setOnClickListener {
-            Toast.makeText(applicationContext, "Add Card Information Successful", Toast.LENGTH_SHORT).show()
-            var cardNumber = edit_text_card_number.text.toString()
-            var cardName = edit_text_name_card.text.toString()
-            var cardDate = edit_text_end_date_Card.text.toString()
-            var cardCvc = edit_text_cvs_card.text.toString().toInt()
-            var zipCode = edit_text_start_date_card.text.toString().toInt()
-            var sessionManager = SessionManager(this)
-            sessionManager.addCardInfo(cardNumber,cardName,cardDate,cardCvc,zipCode)
-
-        }
-    }
 }

@@ -9,6 +9,7 @@
         />
 
     <TextView
+        android:textColor="@color/green"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
@@ -39,6 +40,7 @@
         />
 
     <TextView
+        android:textColor="@color/green"
         android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -68,6 +70,7 @@
         />
 
     <TextView
+        android:textColor="@color/green"
         android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -95,6 +98,7 @@
         android:layout_below="@+id/text_view_order_address_fragment"
         />
     <TextView
+        android:textColor="@color/green"
         android:layout_marginLeft="15dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -106,14 +110,14 @@
 
 
     <TextView
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:layout_below="@+id/text_view_order_summary"
         android:id="@+id/text_view_total_amount_payment"
         android:text="Total : "
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
         />
 
@@ -123,10 +127,10 @@
         android:layout_height="40dp"
         android:layout_below="@+id/text_view_order_summary"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Price "
-        android:textSize="22dp" />
+        android:textSize="20dp" />
     <TextView
         android:layout_marginLeft="10dp"
         android:layout_width="100dp"
@@ -134,7 +138,7 @@
         android:layout_below="@id/text_view_total_amount_payment"
         android:id="@+id/text_view_discount_amount_payment"
         android:text="Discount : "
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
         />
     <TextView
@@ -144,7 +148,7 @@
         android:id="@+id/text_view_discount_amount_price_payment"
         android:layout_alignParentRight="true"
         android:text="Price "
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
         android:textColor="@color/red"
         />
@@ -155,7 +159,7 @@
         android:layout_below="@+id/text_view_discount_amount_payment"
         android:id="@+id/text_view_delivery_amount_payment"
         android:text="Delivery : "
-        android:textSize="22dp"
+        android:textSize="20dp"
         android:gravity="center"
         />
 
@@ -167,7 +171,7 @@
         android:layout_alignParentRight="true"
         android:gravity="center"
         android:text="Price "
-        android:textSize="22dp" />
+        android:textSize="20dp" />
     <TextView
         android:layout_marginLeft="10dp"
         android:layout_width="100dp"

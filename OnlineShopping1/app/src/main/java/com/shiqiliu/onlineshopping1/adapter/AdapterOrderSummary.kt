@@ -21,7 +21,7 @@ class AdapterOrderSummary(var mContext: Context) :
     inner class myViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(order: Order) {
             itemView.text_view_order_date.text = convertMongoDate(order.date)
-            itemView.text_view_order_amount.text = "$${order.orderSummary.orderAmount}"
+            itemView.text_view_order_amount.text = "$${order.orderSummary.orderAmount}"//1
             //for-loop
             var productNameTotal: String = ""
             for (product1 in order.products) {

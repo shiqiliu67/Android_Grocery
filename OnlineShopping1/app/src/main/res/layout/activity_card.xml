@@ -1,68 +1,158 @@
-<LinearLayout android:layout_width="match_parent"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <include layout="@layout/app_bar"/>
+    android:orientation="vertical">
+
+    <include layout="@layout/app_bar" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:id="@+id/image_view_card_banner"
+        android:layout_below="@+id/toolbar"
+        android:src="@drawable/card_png_2"/>
+
+    <TextView
+        android:id="@+id/text_text_view_card_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/image_view_card_banner"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Name"
+        android:textSize="16dp" />
     <EditText
         android:id="@+id/edit_text_name_card"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:hint="CardHolder Name"
-        android:textSize="25dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_text_view_card_name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
         android:background="@drawable/edit_text_address"
-        android:layout_marginTop="30dp"
-        />
+        android:hint="CardHolder Name"
+        android:paddingLeft="20dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_text_view_card_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_name_card"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Card Number"
+        android:textSize="16dp" />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/text_text_view_card_number"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/edit_text_card_number"
+        android:src="@drawable/ic_baseline_credit_card_24" />
+
     <EditText
         android:id="@+id/edit_text_card_number"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:hint="Card Number"
-        android:textSize="25dp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_text_view_card_number"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_address"
-        android:layout_marginTop="20dp"
-        />
+        android:hint="Card Number"
+        android:paddingLeft="20dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_text_view_card_cvc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_card_number"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="120dp"
+        android:text="CVC"
+        android:textSize="16dp" />
+
     <EditText
         android:id="@+id/edit_text_cvs_card"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:hint="CVS"
-        android:textSize="25dp"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/text_text_view_card_exp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="55dp"
         android:background="@drawable/edit_text_address"
-        android:layout_marginTop="20dp"
-        />
+        android:hint="CVC"
+        android:paddingLeft="15dp"
+        android:textSize="20dp" />
+    <TextView
+        android:id="@+id/text_text_view_card_zipcode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_end_date_Card"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Zip Code"
+        android:textSize="16dp" />
+
     <EditText
         android:id="@+id/edit_text_start_date_card"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:hint="Card Start Date"
-        android:textSize="25dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_text_view_card_zipcode"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/edit_text_address"
+        android:hint="Zip Code"
+        android:paddingLeft="20dp"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/text_text_view_card_exp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edit_text_card_number"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        android:text="Expiration"
+        android:textSize="16dp" />
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/text_text_view_card_zipcode"
         android:layout_marginTop="20dp"
-        />
+        android:layout_marginRight="10dp"
+        android:layout_toLeftOf="@+id/edit_text_card_number"
+        android:src="@drawable/ic_baseline_location_on_24" />
+
     <EditText
         android:id="@+id/edit_text_end_date_Card"
-        android:layout_width="350dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center"
-        android:paddingLeft="30dp"
-        android:hint="Card End Date"
-        android:textSize="25dp"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/text_text_view_card_exp"
+        android:layout_marginLeft="58dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/edit_text_address"
-        android:layout_marginTop="20dp"
-        />
+        android:hint="xx/xxxx"
+        android:paddingLeft="20dp"
+        android:textSize="22dp" />
     <Button
-        android:layout_marginTop="100dp"
-        android:layout_below="@+id/edit_text_end_date_Card"
-        android:id="@+id/button_card_back_payment"
-        android:layout_width="match_parent"
+        android:id="@+id/button_card_add_card"
+        android:layout_marginLeft="30dp"
+        android:layout_width="160dp"
         android:layout_height="80dp"
+        android:layout_below="@+id/edit_text_start_date_card"
+        android:layout_marginTop="50dp"
+        android:text="Add Card" />
+
+    <Button
+        android:id="@+id/button_card_back_payment"
+        android:layout_width="180dp"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_height="80dp"
+        android:layout_below="@+id/edit_text_start_date_card"
+        android:layout_marginTop="50dp"
         android:text="Back to Payment" />
-</LinearLayout>
+</RelativeLayout>

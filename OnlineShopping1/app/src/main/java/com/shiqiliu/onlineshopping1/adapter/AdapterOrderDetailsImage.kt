@@ -19,7 +19,7 @@ class AdapterOrderDetailsImage(var mContext: Context) :
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(product: Product) {
             itemView.text_view_order_product_name_fragment.text = product.productName
-            itemView.text_view_order_product_price_fragment.text = product.price.toString()
+            itemView.text_view_order_product_price_fragment.text = "$${product.price.toString()}"
             itemView.text_view_order_product_quantity_fragment.text = product.quantity.toString()
             Log.d("abc", "product +${product.productName} ")
             Log.d("abc","product name:${itemView.text_view_order_product_name_fragment.text}")
